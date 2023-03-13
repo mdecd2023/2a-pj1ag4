@@ -21,6 +21,17 @@
 <p><a href="/downloads/slider.ttt">slider</a></p>
 <p><a href="/downloads/wheels.ttt">wheels</a></p>
 <p></p>
+<p>心得:</p>
+<p> 41023125:</p>
+<p> 一開始編<span>寫一個程式判定 2a 哪一組已經完成網頁建置的作業中</span></p>
+<p> 最初始使用python中的<span>requests與</span>lxml模組編寫出 <a href="https://gist.githubusercontent.com/41023125/e8ad5766005cde195dd09a503cfc8d43/raw/3efd8bbd6519df9c7a13e7350f9074d9019d5d1d/checkpy.txt">checkpy.txt</a></p>
+<p> 之後將其導入Brython發現出現錯誤ModuleNotFoundError: requests</p>
+<p> 發現<span>brython 中沒有 </span><code>requests</code><span> 模組</span></p>
+<p> 之後多次嘗試後參考<a href="https://mdecd2023.github.io/2a-pj1agx/content/2apj1.html">https://mdecd2023.github.io/2a-pj1agx/content/2apj1.html</a> </p>
+<p> 提取出來網站網址與倉儲網址且檢查網站是否建立完成且只列出字串</p>
+<p> 做出<a href="https://gist.githubusercontent.com/41023125/55fc22e3c4c66351ca2df5f910d32b57/raw/c351866507405700bbb4f6bbbad4e07760b69fce/check.txt">check.txt</a> 並將每段程式添加了註解 </p>
+<p> 製作BubbleRob tutorial學到了<span>感測器的組裝</span></p>
+<p><span> 當特定事件發生時 CoppeliaSim 會呼叫相對應的 callback function 來執行特定的操作</span></p>
 <p></p>
 </div><h1>notes</h1>
 <h2>check</h2>
@@ -83,7 +94,7 @@ def run():
     #ns = {'__name__':'__main__'}
     #exec(prog, ns)
     # 按下 run 按鈕
-    Ace.run()
+    #Ace.run()
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
 doc['kw_run'].bind('click', Ace.run)
