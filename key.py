@@ -4,12 +4,17 @@ import configparser
 config = configparser.ConfigParser()
 config.read('.git/config')
 
+# 讀取key檔案的值
+with open('C:\\Users\\alin\\Downloads\\key', 'r') as keyfile:
+    special_word = keyfile.read().strip()
+
 # 讀取url設定的值
 url = config.get('remote "origin"', 'url')
 
-# 在url前面加上特定字
-special_word = "https://"+"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"+"@"+"github.com"
-new_url = special_word + url.split('github.com')[1]
+# 找到原有的子字符串，删除它并在其之前添加新字符串
+start = url.find('https://')
+end = url.rfind('github.com')
+new_url = url[:start] + 'https://' + special_word + '@'  + url[end:]
 
 # 更新url設定的值
 config.set('remote "origin"', 'url', new_url)
