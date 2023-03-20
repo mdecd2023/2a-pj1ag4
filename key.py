@@ -5,7 +5,7 @@ config = configparser.ConfigParser()
 config.read('.git/config')
 
 # 讀取key檔案的值
-with open('C:\\Users\\alin\\Downloads\\key', 'r') as keyfile:
+with open('C:\\Users\\alin\\Downloads\\key.txt', 'r') as keyfile:
     special_word = keyfile.read().strip()
 
 # 讀取url設定的值
