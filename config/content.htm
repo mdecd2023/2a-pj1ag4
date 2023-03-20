@@ -37,12 +37,44 @@
 <p> 的 callback function，當特定事件發生時 CoppeliaSim 會呼叫相對應的 callback function 來執行特定</p>
 <p> 的操作，例如 sysCall_actuation 則是當 CoppeliaSim 模擬器處理 actuation 時會被呼叫的 callback</p>
 <p> function。</p>
-<p> 透過這個程式範例，可以學習到 CoppeliaSim 中如何透過程式操控模擬器中的物件，以及如何透過</p>
-<p> callback function 執行特定操作的方法</p>
+<p> 透過這個程式範例，可以學習到 CoppeliaSim 中如何透過程式操控模擬器中的物件，以及如何透過   callback function 執行特定操作的方法</p>
 <p> 雖然還是不太熟悉</p>
 <p> 但至少能稍微理解</p>
 </div><h1>notes</h1>
-<h2>check</h2>
+<h2>可攜程式研究</h2>
+<h3>wsgi.py</h3>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#!/usr/bin/python
+
+"""
+Flask startup script
+"""
+
+import sys
+import os
+
+# 將目前檔案所在的目錄加到 Python 搜尋模組的路徑中
+sys.path.append(os.path.join(os.path.dirname(__file__)))
+
+# 載入 flaskapp 模組
+import flaskapp
+
+# 讀取 flaskapp 模組中的變數值
+uwsgi = flaskapp.uwsgi
+ip = flaskapp.ip
+port = flaskapp.dynamic_port
+
+if uwsgi:
+    # 在遠端執行
+    application = flaskapp.app
+else:
+    # 在本地端執行，開啟 Flask 網路伺服器
+    flaskapp.app.run(
+        host=ip,        # 網路伺服器的 IP 位置
+        port=port,      # 網路伺服器的埠口號碼
+        debug=True,     # 啟用除錯模式
+        ssl_context="adhoc"     # 使用自簽憑證啟用 SSL 加密連線
+    )
+</pre><h2>check</h2>
 <!-- 導入 brython 程式庫 -->
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
