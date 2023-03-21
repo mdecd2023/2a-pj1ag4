@@ -2,7 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,36 +141,71 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w3 << <a href='w3.html'>Previous</a> <a href='程式解析.html'>Next</a> >> 程式解析<br /><h1>Tutorial1</h1>
-<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="./../downloads/bubbleRob1.mp4" type="video/mp4"/></video>
-<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="./../downloads/bubbleRobfinal.mp4" type="video/mp4"/></video></div>
-<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="./../downloads/Finish.mp4" type="video/mp4"/></video></div>
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/qE4kA0wqKWk" title="YouTube video player" width="560"></iframe>
-<p><a href="./../downloads/bubbleRob.ttt">bubbleRob本體</a></p>
-<p><a href="./../downloads/slider.ttt">slider</a></p>
-<p><a href="./../downloads/wheels.ttt">wheels</a></p>
-<p></p>
-<p>心得:</p>
-<p> 41023125:</p>
-<p> 一開始編<span>寫一個程式判定 2a 哪一組已經完成網頁建置的作業中</span></p>
-<p> 最初始使用python中的<span>requests與</span>lxml模組編寫出 <a href="https://gist.githubusercontent.com/41023125/e8ad5766005cde195dd09a503cfc8d43/raw/3efd8bbd6519df9c7a13e7350f9074d9019d5d1d/checkpy.txt">checkpy.txt</a></p>
-<p> 之後將其導入Brython發現出現錯誤ModuleNotFoundError: requests</p>
-<p> 發現<span>brython 中沒有 </span><code>requests</code><span> 模組</span></p>
-<p> 之後多次嘗試後參考<a href="https://mdecd2023.github.io/2a-pj1agx/content/2apj1.html">https://mdecd2023.github.io/2a-pj1agx/content/2apj1.html</a> </p>
-<p> 提取出來網站網址與倉儲網址且檢查網站是否建立完成且只列出字串</p>
-<p> 做出<a href="https://gist.githubusercontent.com/41023125/55fc22e3c4c66351ca2df5f910d32b57/raw/c351866507405700bbb4f6bbbad4e07760b69fce/check.txt">check.txt</a> 並將每段程式添加了註解 </p>
-<p> 製作BubbleRob tutorial學到了<span>感測器的組裝</span></p>
-<p><span> 在CoppeliaSim中的python程式中</span></p>
-<p> 發現程式中的許多元件如左右馬達、感測器、畫面等都是 CoppeliaSim 中的物件，而程式中的 </p>
-<p> sysCall_init、sysCall_sensing、sysCall_actuation、sysCall_cleanup 等則是 CoppeliaSim 定義好</p>
-<p> 的 callback function，當特定事件發生時 CoppeliaSim 會呼叫相對應的 callback function 來執行特定</p>
-<p> 的操作，例如 sysCall_actuation 則是當 CoppeliaSim 模擬器處理 actuation 時會被呼叫的 callback</p>
-<p> function。</p>
-<p> 透過這個程式範例，可以學習到 CoppeliaSim 中如何透過程式操控模擬器中的物件，以及如何透過   callback function 執行特定操作的方法</p>
-<p> 雖然還是不太熟悉</p>
-<p> 但至少能稍微理解</p>
-</div>
-<br />w3 << <a href='w3.html'>Previous</a> <a href='程式解析.html'>Next</a> >> 程式解析</div>
+    <div id="tipue_search_content">Tutorial1 << <a href='Tutorial1.html'>Previous</a> <a href='notes.html'>Next</a> >> notes<br /><h1>程式解析</h1>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">function speedChange_callback(ui,id,newVal)
+    speed=minMaxSpeed[1]+(minMaxSpeed[2]-minMaxSpeed[1])*newVal/100
+end
+  
+function sysCall_init()
+    -- This is executed exactly once, the first time this script is executed
+    bubbleRobBase=sim.getObject('.') -- this is bubbleRob's handle
+    leftMotor=sim.getObject("./leftMotor") -- Handle of the left motor
+    rightMotor=sim.getObject("./rightMotor") -- Handle of the right motor
+    noseSensor=sim.getObject("./sensingNose") -- Handle of the proximity sensor
+    minMaxSpeed={50*math.pi/180,300*math.pi/180} -- Min and max speeds for each motor
+    backUntilTime=-1 -- Tells whether bubbleRob is in forward or backward mode
+    robotCollection=sim.createCollection(0)
+    sim.addItemToCollection(robotCollection,sim.handle_tree,bubbleRobBase,0)
+    distanceSegment=sim.addDrawingObject(sim.drawing_lines,4,0,-1,1,{0,1,0})
+    robotTrace=sim.addDrawingObject(sim.drawing_linestrip+sim.drawing_cyclic,2,0,-1,200,{1,1,0})
+    graph=sim.getObject('./graph')
+    distStream=sim.addGraphStream(graph,'bubbleRob clearance','m',0,{1,0,0})
+    -- Create the custom UI:
+        xml = '&lt;ui title="'..sim.getObjectAlias(bubbleRobBase,1)..' speed" closeable="false" resizeable="false" activate="false"&gt;'..[[
+        &lt;hslider minimum="0" maximum="100" onchange="speedChange_callback" id="1"/&gt;
+        &lt;label text="" style="* {margin-left: 300px;}"/&gt;
+        &lt;/ui&gt;
+        ]]
+    ui=simUI.create(xml)
+    speed=(minMaxSpeed[1]+minMaxSpeed[2])*0.5
+    simUI.setSliderValue(ui,1,100*(speed-minMaxSpeed[1])/(minMaxSpeed[2]-minMaxSpeed[1]))
+end
+  
+function sysCall_sensing()
+    local result,distData=sim.checkDistance(robotCollection,sim.handle_all)
+    if result&gt;0 then
+        sim.addDrawingObjectItem(distanceSegment,nil)
+        sim.addDrawingObjectItem(distanceSegment,distData)
+        sim.setGraphStreamValue(graph,distStream,distData[7])
+    end
+    local p=sim.getObjectPosition(bubbleRobBase,-1)
+    sim.addDrawingObjectItem(robotTrace,p)
+end
+  
+function sysCall_actuation()
+    result=sim.readProximitySensor(noseSensor) -- Read the proximity sensor
+    -- If we detected something, we set the backward mode:
+    if (result&gt;0) then backUntilTime=sim.getSimulationTime()+4 end
+  
+    if (backUntilTime&lt;sim.getSimulationTime()) then
+        -- When in forward mode, we simply move forward at the desired speed
+        sim.setJointTargetVelocity(leftMotor,speed)
+        sim.setJointTargetVelocity(rightMotor,speed)
+    else
+        -- When in backward mode, we simply backup in a curve at reduced speed
+        sim.setJointTargetVelocity(leftMotor,-speed/2)
+        sim.setJointTargetVelocity(rightMotor,-speed/8)
+    end
+end
+  
+function sysCall_cleanup()
+    simUI.destroy(ui)
+end</pre>
+<p>此為一段 Lua 腳本程式碼，用於控制 BubbleRob 模型在 V-REP 模擬環境中的行為。程式碼主要由四個函數組成：sysCall_init()、sysCall_sensing()、sysCall_actuation()、sysCall_cleanup()。</p>
+<p>sysCall_init() 函數在程式一開始執行時被呼叫，主要用來初始化 BubbleRob 模型與 UI 介面。其中包括了建立 BubbleRob 模型的各種物件、建立畫布物件用來繪製 BubbleRob 移動的軌跡、建立 UI 介面等。</p>
+<p>sysCall_sensing() 函數用於定期檢查 BubbleRob 前方是否有障礙物，若有則繪製出距離 BubbleRob 的距離測量值，同時也會繪製出 BubbleRob 移動的軌跡。</p>
+<p>sysCall_actuation() 函數則用於根據 BubbleRob 的前方是否有障礙物來控制 BubbleRob 的移動。若前方無障礙物，則直接以固定速度向前移動；若前方有障礙物，則 BubbleRob 會以較慢的速度向後退，並且向右彎曲以避開障礙物。</p>
+<p>sysCall_cleanup() 函數則在程式結束時被呼叫，主要用來清除創建的 UI 介面。</p><br />Tutorial1 << <a href='Tutorial1.html'>Previous</a> <a href='notes.html'>Next</a> >> notes</div>
         
     <!-- footer -->
       <div class="container">
