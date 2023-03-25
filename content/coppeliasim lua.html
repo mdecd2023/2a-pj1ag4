@@ -2,6 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -94,6 +95,7 @@ img.add_border {
 </head>
 <body>
 <div class='container'><nav>
+        
     <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -139,4 +141,66 @@ img.add_border {
           </div>
           
         </header>
-    </nav><section><h1>Site Map</h1><div id="tipue_search_content"></div><ul><li><a href='About.html'>About</a><li><a href='w3.html'>w3</a><li><a href='w5.html'>w5</a><li><a href='Tutorial1.html'>Tutorial1</a><ul><li><a href='程式解析.html'>程式解析</a><li><a href='coppeliasim lua.html'>coppeliasim lua</a></li></ul><li><a href='notes.html'>notes</a><ul><li><a href='可攜程式研究.html'>可攜程式研究</a><ul><li><a href='cms.html'>cms</a><li><a href='wsgi.py.html'>wsgi.py</a><li><a href='flaskapp.py.html'>flaskapp.py</a></li></ul><li><a href='check.html'>check</a><li><a href='相關網站.html'>相關網站</a></li></ul></section></div></body></html>
+    <div id="tipue_search_content">程式解析 << <a href='程式解析.html'>Previous</a> <a href='notes.html'>Next</a> >> notes<br /><h1>coppeliasim lua</h1>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sim.getObject('.')</pre>
+<p><span> </span></p>
+<p><span>sim.getObject('.') 的作用是獲取當前對象的句柄。在CoppeliaSim的Lua腳本中，'.' 表示當前腳本所屬的對象，因此 sim.getObject('.') 會返回當前腳本的句柄。</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sim.createCollection(0)</pre>
+<p><span>sim.createCollection(0) 的作用是創建一個新的對象集合，並返回該對象集合的句柄。參數0指定了創建的對象集合是空的。</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sim.addItemToCollection(robotCollection,sim.handle_tree,bubbleRobBase,0)</pre>
+<p><span>sim.addItemToCollection(robotCollection, sim.handle_tree, bubbleRobBase, 0) 的作用是將物體添加到指定的物體集合中。其中，robotCollection 是物體集合的句柄，sim.handle_tree 指定添加物體的關係類型，bubbleRobBase 是要添加的物體的句柄，0 表示不遞歸添加。該函數執行後，bubbleRobBase 將被添加到 robotCollection 物體集合中。</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sysCall_actuation()</pre>
+<p><span>sysCall_actuation()是CoppeliaSim Lua脚本中的一個函數，它是一個回調函數，會在每個仿真步驟中自動被調用。在這個函數中，你可以實現你的控制演算法，使得機器人可以移動、感知環境等等。通常，這個函數中會包含循環，來使得機器人可以持續執行控制演算法。</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sim.message_keypress</pre>
+<p><span>sim.message_keypress表示當用戶按下一個鍵時觸發的事件</span><br/><br/></p>
+<p><span></span></p><br />程式解析 << <a href='程式解析.html'>Previous</a> <a href='notes.html'>Next</a> >> notes</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        

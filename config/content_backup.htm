@@ -15,9 +15,14 @@
 <h1>w5</h1>
 <p>3/24 完成將bubbleRob 雙輪車調整成手動模式</p>
 <p>利用awsd鍵進行移動</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/T_q7Wp_GK6A" title="YouTube video player" width="560"></iframe></p>
-<p><span>3/24 </span>完成 觸發特定條件使<span>bubbleRob 雙輪車</span>回到原位</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/14i_4W1tOGk" title="YouTube video player" width="560"></iframe></p><h1>Tutorial1</h1>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/T_q7Wp_GK6A" title="YouTube video player" width="560"></iframe>觸發特定條件使<span>bubbleRob 雙輪車</span>回到原位</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/14i_4W1tOGk" title="YouTube video player" width="560"></iframe></p>
+<p>待解決問題:</p>
+<p>記分板製作</p>
+<p>足球框製作</p>
+<p>足球製作</p>
+<p>觸發條件設定製作</p>
+<p>連機問題</p><h1>Tutorial1</h1>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="/downloads/bubbleRob1.mp4" type="video/mp4"/></video>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="/downloads/bubbleRobfinal.mp4" type="video/mp4"/></video></div>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="/downloads/Finish.mp4" type="video/mp4"/></video></div>
@@ -109,7 +114,21 @@ end</pre>
 <p>sysCall_init() 函數在程式一開始執行時被呼叫，主要用來初始化 BubbleRob 模型與 UI 介面。其中包括了建立 BubbleRob 模型的各種物件、建立畫布物件用來繪製 BubbleRob 移動的軌跡、建立 UI 介面等。</p>
 <p>sysCall_sensing() 函數用於定期檢查 BubbleRob 前方是否有障礙物，若有則繪製出距離 BubbleRob 的距離測量值，同時也會繪製出 BubbleRob 移動的軌跡。</p>
 <p>sysCall_actuation() 函數則用於根據 BubbleRob 的前方是否有障礙物來控制 BubbleRob 的移動。若前方無障礙物，則直接以固定速度向前移動；若前方有障礙物，則 BubbleRob 會以較慢的速度向後退，並且向右彎曲以避開障礙物。</p>
-<p>sysCall_cleanup() 函數則在程式結束時被呼叫，主要用來清除創建的 UI 介面。</p><h1>notes</h1>
+<p>sysCall_cleanup() 函數則在程式結束時被呼叫，主要用來清除創建的 UI 介面。</p>
+<p></p>
+<h2>coppeliasim lua</h2>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sim.getObject('.')</pre>
+<p><span> </span></p>
+<p><span>sim.getObject('.') 的作用是獲取當前對象的句柄。在CoppeliaSim的Lua腳本中，'.' 表示當前腳本所屬的對象，因此 sim.getObject('.') 會返回當前腳本的句柄。</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sim.createCollection(0)</pre>
+<p><span>sim.createCollection(0) 的作用是創建一個新的對象集合，並返回該對象集合的句柄。參數0指定了創建的對象集合是空的。</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sim.addItemToCollection(robotCollection,sim.handle_tree,bubbleRobBase,0)</pre>
+<p><span>sim.addItemToCollection(robotCollection, sim.handle_tree, bubbleRobBase, 0) 的作用是將物體添加到指定的物體集合中。其中，robotCollection 是物體集合的句柄，sim.handle_tree 指定添加物體的關係類型，bubbleRobBase 是要添加的物體的句柄，0 表示不遞歸添加。該函數執行後，bubbleRobBase 將被添加到 robotCollection 物體集合中。</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sysCall_actuation()</pre>
+<p><span>sysCall_actuation()是CoppeliaSim Lua脚本中的一個函數，它是一個回調函數，會在每個仿真步驟中自動被調用。在這個函數中，你可以實現你的控制演算法，使得機器人可以移動、感知環境等等。通常，這個函數中會包含循環，來使得機器人可以持續執行控制演算法。</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">sim.message_keypress</pre>
+<p><span>sim.message_keypress表示當用戶按下一個鍵時觸發的事件</span><br/><br/></p>
+<p><span></span></p><h1>notes</h1>
 <h2>可攜程式研究</h2>
 <h3>cms</h3>
 <pre class="brush:bash;auto-links:false;toolbar:false" contenteditable="false">#! /bin/bash

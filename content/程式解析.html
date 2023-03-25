@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='w3.html'>w3</a><li><a href='w5.html'>w5</a><li class='has-children'><a href='Tutorial1.html'>Tutorial1</a><ul class='dropdown'><li><a href='程式解析.html'>程式解析</a></li></ul><li class='has-children'><a href='notes.html'>notes</a><ul class='dropdown'><li class='has-children'><a href='可攜程式研究.html'>可攜程式研究</a><ul class='dropdown'><li><a href='cms.html'>cms</a><li><a href='wsgi.py.html'>wsgi.py</a><li><a href='flaskapp.py.html'>flaskapp.py</a></li></ul><li><a href='check.html'>check</a><li><a href='相關網站.html'>相關網站</a></li>
+                     <li><a href='About.html'>About</a><li><a href='w3.html'>w3</a><li><a href='w5.html'>w5</a><li class='has-children'><a href='Tutorial1.html'>Tutorial1</a><ul class='dropdown'><li><a href='程式解析.html'>程式解析</a><li><a href='coppeliasim lua.html'>coppeliasim lua</a></li></ul><li class='has-children'><a href='notes.html'>notes</a><ul class='dropdown'><li class='has-children'><a href='可攜程式研究.html'>可攜程式研究</a><ul class='dropdown'><li><a href='cms.html'>cms</a><li><a href='wsgi.py.html'>wsgi.py</a><li><a href='flaskapp.py.html'>flaskapp.py</a></li></ul><li><a href='check.html'>check</a><li><a href='相關網站.html'>相關網站</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,7 +141,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Tutorial1 << <a href='Tutorial1.html'>Previous</a> <a href='notes.html'>Next</a> >> notes<br /><h1>程式解析</h1>
+    <div id="tipue_search_content">Tutorial1 << <a href='Tutorial1.html'>Previous</a> <a href='coppeliasim lua.html'>Next</a> >> coppeliasim lua<br /><h1>程式解析</h1>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">function speedChange_callback(ui,id,newVal)
     speed=minMaxSpeed[1]+(minMaxSpeed[2]-minMaxSpeed[1])*newVal/100
 end
@@ -205,7 +205,9 @@ end</pre>
 <p>sysCall_init() 函數在程式一開始執行時被呼叫，主要用來初始化 BubbleRob 模型與 UI 介面。其中包括了建立 BubbleRob 模型的各種物件、建立畫布物件用來繪製 BubbleRob 移動的軌跡、建立 UI 介面等。</p>
 <p>sysCall_sensing() 函數用於定期檢查 BubbleRob 前方是否有障礙物，若有則繪製出距離 BubbleRob 的距離測量值，同時也會繪製出 BubbleRob 移動的軌跡。</p>
 <p>sysCall_actuation() 函數則用於根據 BubbleRob 的前方是否有障礙物來控制 BubbleRob 的移動。若前方無障礙物，則直接以固定速度向前移動；若前方有障礙物，則 BubbleRob 會以較慢的速度向後退，並且向右彎曲以避開障礙物。</p>
-<p>sysCall_cleanup() 函數則在程式結束時被呼叫，主要用來清除創建的 UI 介面。</p><br />Tutorial1 << <a href='Tutorial1.html'>Previous</a> <a href='notes.html'>Next</a> >> notes</div>
+<p>sysCall_cleanup() 函數則在程式結束時被呼叫，主要用來清除創建的 UI 介面。</p>
+<p></p>
+<br />Tutorial1 << <a href='Tutorial1.html'>Previous</a> <a href='coppeliasim lua.html'>Next</a> >> coppeliasim lua</div>
         
     <!-- footer -->
       <div class="container">
