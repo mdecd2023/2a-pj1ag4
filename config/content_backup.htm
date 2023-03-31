@@ -102,7 +102,7 @@ def run():
     try:
         url = doc.query["src"]
     except:
-       url ="https://gist.githubusercontent.com/41023125/b76e765f309a1d90bf0a3542399976ef/raw/7aad9c8285847269c093cdf2f0fefaccd519565e/gistfile1.txt"
+       url ="https://gist.githubusercontent.com/41023125/e87baa34adaf86c8765172cb055c8fbf/raw/f1bb6d8c1f99eb56bc9e1f93254d49c582cadf54/%25E6%259F%25A5%25E9%25A9%2597"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -113,7 +113,7 @@ def run():
     #ns = {'__name__':'__main__'}
     #exec(prog, ns)
     # 按下 run 按鈕
-    #Ace.run()
+    Ace.run()
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
 doc['kw_run'].bind('click', Ace.run)
