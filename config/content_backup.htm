@@ -53,7 +53,11 @@
 <p><span>球大小調整</span></p>
 <p><span>設定感測器只感測球(如果將bubbleRob被感測關掉可以直接解決)</span></p>
 <p><a href="/downloads/bubbleRob-time -score.ttt">bubbleRob-time -score.ttt</a></p>
-<h1>w6</h1>
+<p></p>
+<p>4/5 連線問題解決</p>
+<p>將部分程式轉成python僅留下計分</p>
+<p><span>待解決問題:</span></p>
+<p><span>製作成兩台bubbleRob對局</span></p><h1>w6</h1>
 <!-- 導入 brython 程式庫 -->
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
@@ -102,7 +106,7 @@ def run():
     try:
         url = doc.query["src"]
     except:
-       url ="https://gist.githubusercontent.com/41023125/e87baa34adaf86c8765172cb055c8fbf/raw/f1bb6d8c1f99eb56bc9e1f93254d49c582cadf54/%25E6%259F%25A5%25E9%25A9%2597"
+       url ="https://gist.githubusercontent.com/41023125/5ebe048b352c1f37f7ac5603f8b90fbb/raw/a21f514652b41dcbf87eb6a24c7233174af6ab30/gistfile1.txt"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -114,6 +118,7 @@ def run():
     #exec(prog, ns)
     # 按下 run 按鈕
     Ace.run()
+  
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
 doc['kw_run'].bind('click', Ace.run)
