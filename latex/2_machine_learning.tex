@@ -2,8 +2,8 @@
 \section{將Coppeliasim版本更改為可執行python程式}
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=16cm]{類神經網路架構}
-\caption{\Large 設定 }\label{ 設定 }
+\includegraphics[width=16cm]{設定python}
+\caption{\Large 設定python }\label{ 設定python }
 \end{center}
 \end{figure} 
  CoppeliaSim 自 4.3 版之後除了 Lua scripting, 增加了 Python scripting 功能. 但是必須在 usrset.txt 中設定 defaultPython 指向 Python.exe, pip install cbor zmq, 並且設定 executeUnsafe = true. 完成後開啟 CoppeliaSim 4.3.0 rev12, 並利用 scenes/simplePythonExample.ttt 進行測試  如(圖.\ref{ 設定 }) 。\\
