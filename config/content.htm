@@ -142,7 +142,341 @@ run()
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
 <div id="brython_div"></div>
-<p></p><h1>Tutorial1</h1>
+<p></p>
+<h1>w9</h1>
+<h2>ag4</h2>
+<p><span>2a-pj1ag4組員:41023125、41023128</span></p>
+<p>pj1ag4倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag4">https://github.com/mdecd2023/2a-pj1ag4</a></p>
+<p>pj1ag4網頁:<a href="https://mdecd2023.github.io/2a-pj1ag4">https://mdecd2023.github.io/2a-pj1ag4</a></p>
+<p></p>
+<p><span style="background-color: #ff0000;">歷程</span></p>
+<p>3/24 完成將bubbleRob 雙輪車調整成手動模式</p>
+<p>利用awsd鍵進行移動</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/T_q7Wp_GK6A" title="YouTube video player" width="560"></iframe></p>
+<p>觸發特定條件使<span>bubbleRob 雙輪車</span>回到原位</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/14i_4W1tOGk" title="YouTube video player" width="560"></iframe></p>
+<p>3/25 完成足球製作以及<span>觸發條件設定製作</span></p>
+<p>使球觸碰到球門的感測器後重製球場</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/pgLG2eIy6lo" title="YouTube video player" width="560"></iframe><span></span></p>
+<p>3/26 增加放開鍵盤會停止、倒數計時、記分板</p>
+<p>增加放開鍵盤一段時間後會將速度設為0直到按下鍵盤</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/oGEXV054pAk" title="YouTube video player" width="560"></iframe></p>
+<p><img alt="" src="/images/index.html"/>增加倒數計時與分數的面板</p>
+<p>開始後開始倒數計時</p>
+<p>時間到則結束</p>
+<p><img caption="false" height="293" src="/images/326.png" width="554"/></p>
+<p>兩邊感測與計算皆完成</p>
+<p><img alt="" height="293" src="/images/326-2.png" width="560"/></p>
+<p><span></span>3/29 連線問題解決</p>
+<p>將操作的程式轉成python</p>
+<p>4/12 確認連機遊玩可執行</p>
+<p>加入歡迎跟恭喜</p>
+<p><img caption="false" height="298" src="/images/412-1.png" width="560"/></p>
+<p></p>
+<p><img caption="false" height="296" src="/images/412-2.png" width="560"/></p>
+<p>共經歷了八個版本改版</p>
+<p>前七個版本:<a href="/downloads/ag4/bubbleRob紀錄.7z">bubbleRob紀錄.7z</a></p>
+<p>最終版:<a href="/downloads/ag4/bubbleRob.7z">bubbleRob.7z</a></p>
+<p>裡面包含了my_ip.txt ip.bat  ip.py bubbleRob2.py bubbleRob.py bubbleRob_scenes.ttt等</p>
+<p>點擊<span>ip.bat就能直接獲取到目前電腦的ipv4位置</span></p>
+<p><span><img caption="false" height="147" src="/images/ip.png" width="734"/></span></p>
+<p><span></span></p>
+<p> 加入遊戲所在電腦ip 只需輸入ip (<span>遊戲所在電腦ip</span>)</p>
+<p><img caption="false" height="151" src="/images/gameip.png" width="859"/></p>
+<p></p>
+<p><span style="background-color: #ff0000;">程式</span></p>
+<p>場景部分將程式將拆成了許多部分</p>
+<p>用以方便維修</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+-- 場景模擬開始時開啟19998與23020埠號
+simRemoteApi.start(19998)
+simRemoteApi.start(23020)
+end</pre>
+<p></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    --紀錄初始位置並在得分時重置位置
+    --倒數計時與計算分數並顯示等
+    sensor = sim.getObject('./sensor')
+    sensor2 = sim.getObject('./sensor2')
+    bubbleRobBase = 197
+    bubbleRobBase2 = 210
+    ball = 206
+    initialBubbleRobPosition = sim.getObjectPosition(bubbleRobBase, -1)
+    initialBubbleRobOrientation = sim.getObjectOrientation(bubbleRobBase, -1)
+    initialballPosition = sim.getObjectPosition(ball, -1)
+    initialballOrientation = sim.getObjectOrientation(ball, -1)
+    initial2Position = sim.getObjectPosition(bubbleRobBase2, -1)
+    initial2Orientation = sim.getObjectOrientation(bubbleRobBase2, -1)
+    -- do some initialization here
+    count = 1800  -- ??30????????????
+    score1 = 0  -- ??????
+    score2 = 0
+    xml = [[
+        &lt;ui closeable="false" resizeable="false" activate="false"&gt;
+            &lt;label text="30:00" style="* {background-color: #F00; color: #FFF; font-size: 32px; font-weight: bold; padding: 4px; border-radius: 4px;}" id="10"/&gt;
+            &lt;label text="0" style="* {background-color: #00F; color: #FFF; font-size: 32px; font-weight: bold; padding: 4px; border-radius: 4px;}" id="20"/&gt;
+            &lt;label text="0" style="* {background-color: #00F; color: #FFF; font-size: 32px; font-weight: bold; padding: 4px; border-radius: 4px;}" id="30"/&gt;
+        &lt;/ui&gt;
+    ]]
+    ui = simUI.create(xml)
+    simUI.setPosition(ui, 0,0, true)
+end
+
+function sysCall_actuation()
+    result=sim.readProximitySensor(sensor)
+    result2=sim.readProximitySensor(sensor2)
+    --if sim.getSimulationTime() == 0 then
+        --sim.pauseSimulation()
+    --end
+
+    -- 0 or 1
+    if(result&gt;0)then
+        sim.pauseSimulation()
+        sim.setObjectPosition(bubbleRobBase, -1, initialBubbleRobPosition)
+        sim.setObjectOrientation(bubbleRobBase, -1, initialBubbleRobOrientation)
+        sim.setObjectPosition(ball, -1, initialballPosition)
+        sim.setObjectOrientation(ball, -1, initialballOrientation)
+        sim.setObjectPosition(bubbleRobBase2, -1, initial2Position)
+        sim.setObjectOrientation(bubbleRobBase2, -1, initial2Orientation)
+        score1 = score1 +1 
+        
+    end
+    if(result2&gt;0)then
+        sim.pauseSimulation()
+        sim.setObjectPosition(bubbleRobBase, -1, initialBubbleRobPosition)
+        sim.setObjectOrientation(bubbleRobBase, -1, initialBubbleRobOrientation)
+        sim.setObjectPosition(ball, -1, initialballPosition)
+        sim.setObjectOrientation(ball, -1, initialballOrientation)
+        sim.setObjectPosition(bubbleRobBase2, -1, initial2Position)
+        sim.setObjectOrientation(bubbleRobBase2, -1, initial2Orientation)
+        score2 = score2 +1 
+        
+    end
+    if count &gt; 0 then
+        count = count - 1
+        local minutes = math.floor(count / 60)
+        local seconds = count % 60
+        local timeStr = string.format("%d:%02d", minutes, seconds)
+        simUI.setLabelText(ui, 10, timeStr)
+        simUI.setLabelText(ui, 20, tostring(score1))
+        simUI.setLabelText(ui, 30, tostring(score2))
+    else
+        sim.stopSimulation()
+    end
+
+end
+</pre>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    --開始時暫停模擬並顯示welcome to play
+    --之後顯示congratulations on getting a point
+    xml1 = [[
+        &lt;ui closeable="false" resizeable="false" activate="false"&gt;
+            &lt;label text="welcome to play" style="* {background-color: #00F; color: #FFF; font-size: 32px; font-weight: bold; padding: 4px; border-radius: 4px;}" id="1"/&gt;
+        &lt;/ui&gt;
+    ]]
+    ui1 = simUI.create(xml1)
+    add = true 
+    -- Pause simulation on the first run
+    sim.pauseSimulation(true)
+end
+
+function sysCall_actuation()
+    simUI.hide(ui1)
+    
+    
+    
+end
+
+function sysCall_suspend()
+    simUI.show(ui1)
+    --simUI.setLabelText(ui1, 1, "good game")
+    if add == false then 
+        simUI.setLabelText(ui1, 1, "congratulations on getting a point")
+    end
+    add = false
+end
+</pre>
+<p>python操控部分<br/><br/></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#bubbleRob.py
+import sim
+import sys, math
+import keyboard
+import time
+
+with open('my_ip.txt', 'r') as f:
+    my_ip1 = f.readlines()
+    for line in my_ip1:
+        if 'game' in line: #game #myip #local
+            ip = line.split(':')[1].strip()
+            print(ip)
+
+# 連接到 CoppeliaSim simulation
+sim.simxFinish(-1)
+clientID = sim.simxStart(ip, 19997, True, True, 5000, 5)
+sim.simxStartSimulation(clientID, sim.simx_opmode_oneshot_wait)
+
+if clientID != -1:
+    print("已連線到遠端 CoppeliaSim 伺服器")
+else:
+    print('連線失敗')
+    sys.exit('無法連線到 CoppeliaSim 伺服器')
+
+# 取得馬達與感測器的 handles
+errorCode, leftMotor = sim.simxGetObjectHandle(clientID, 'leftMotor', sim.simx_opmode_oneshot_wait)
+errorCode, rightMotor = sim.simxGetObjectHandle(clientID, 'rightMotor', sim.simx_opmode_oneshot_wait)
+errorCode, sensingNose = sim.simxGetObjectHandle(clientID, 'sensingNose', sim.simx_opmode_oneshot_wait)
+
+# 設定一些參數
+deg = math.pi/180
+paused = False
+if errorCode == -1:
+    print('找不到左右馬達')
+    sys.exit()
+
+def jointspeed(left,right):
+    errorCode4=sim.simxSetJointTargetVelocity(clientID,leftMotor,left, sim.simx_opmode_oneshot)
+    errorCode5=sim.simxSetJointTargetVelocity(clientID,rightMotor,right, sim.simx_opmode_oneshot_wait)
+errorCode, number2 = sim.simxLoadModel(clientID, 'number2.ttm', 0, sim.simx_opmode_oneshot_wait)   
+while sim.simxGetConnectionId(clientID) != -1:
+    event = keyboard.read_event()
+    if event.event_type == 'down':
+        print('The "' + event.name + '" key was pressed.')
+    if event.name == 'a' :
+        jointspeed(-3,5)
+    elif event.name == 'w' :
+        jointspeed(5,5)
+    elif event.name == 's' :
+        jointspeed(-5,-5)
+    elif event.name == 'd' :
+        jointspeed(5,-3)
+    if event.name == 'p':
+        if not paused:
+            print('Paused')
+            sim.simxPauseSimulation(clientID, sim.simx_opmode_oneshot_wait)
+            paused = True
+            time.sleep(0.1)
+        else:
+            print('Resumed')
+            sim.simxStartSimulation(clientID, sim.simx_opmode_oneshot_wait)
+            paused = False
+            time.sleep(0.1)
+</pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#bubbleRob2.py
+import sim
+import sys, math
+import keyboard
+import time
+
+with open('my_ip.txt', 'r') as f:
+    my_ip1 = f.readlines()
+    for line in my_ip1:
+        if 'game' in line: #game #myip #local
+            ip = line.split(':')[1].strip()
+            print(ip)
+
+
+# 連接到 CoppeliaSim simulation
+sim.simxFinish(-1)
+clientID = sim.simxStart(ip, 19998, True, True, 5000, 5)
+sim.simxStartSimulation(clientID, sim.simx_opmode_oneshot_wait)
+
+if clientID != -1:
+    print("已連線到遠端 CoppeliaSim 伺服器")
+else:
+    print('連線失敗')
+    sys.exit('無法連線到 CoppeliaSim 伺服器')
+
+# 取得馬達與感測器的 handles
+errorCode, sensingNose = sim.simxGetObjectHandle(clientID, 'sensingNose', sim.simx_opmode_oneshot_wait)
+errorCode = 0
+leftMotor = 216
+rightMotor = 214
+print(errorCode)
+# 設定一些參數
+deg = math.pi/180
+paused = False
+if errorCode == -1:
+    print('找不到左右馬達')
+    sys.exit()
+
+def jointspeed(left,right):
+    errorCode4=sim.simxSetJointTargetVelocity(clientID,leftMotor,left, sim.simx_opmode_oneshot)
+    errorCode5=sim.simxSetJointTargetVelocity(clientID,rightMotor,right, sim.simx_opmode_oneshot_wait)
+errorCode, number2 = sim.simxLoadModel(clientID, 'number2.ttm', 0, sim.simx_opmode_oneshot_wait)   
+while sim.simxGetConnectionId(clientID) != -1:
+    event = keyboard.read_event()
+    if event.event_type == 'down':
+        print('The "' + event.name + '" key was pressed.')
+    if event.name == 'a' :
+        jointspeed(-3,5)
+    elif event.name == 'w' :
+        jointspeed(5,5)
+    elif event.name == 's' :
+        jointspeed(-5,-5)
+    elif event.name == 'd' :
+        jointspeed(5,-3)
+    if event.name == 'p':
+        if not paused:
+            print('Paused')
+            sim.simxPauseSimulation(clientID, sim.simx_opmode_oneshot_wait)
+            paused = True
+            time.sleep(0.1)
+        else:
+            print('Resumed')
+            sim.simxStartSimulation(clientID, sim.simx_opmode_oneshot_wait)
+            paused = False
+            time.sleep(0.1)
+
+</pre>
+<p></p>
+<p><span style="background-color: #ff0000;">遊戲說明</span></p>
+<p>開啟場景後便可以使用19997進行連線</p>
+<p>如果成功連線便會顯示</p>
+<p><img caption="false" height="297" src="/images/412-1.png" width="560"/></p>
+<p>這時23020與19998埠號便會開啟</p>
+<p>第二位玩家便可利用19998加入遊戲</p>
+<p>加入成功便會立即開始</p>
+<p>玩家可利用wasd進行操控</p>
+<p>觀戰者可以利用23020埠號進行觀戰</p>
+<p>一方得分後便會暫停遊戲並還原場地</p>
+<p>按下p則繼續遊戲</p>
+<p>時間到便會結束遊戲</p>
+<p></p>
+<p><span style="background-color: #ff0000;">缺陷</span></p>
+<p>1.在23020埠號的觀戰者無法查看到分數與時間,只能顯示在場景的主畫面上</p>
+<p>2.機器人的機體不適合推球</p>
+<p>3.遊戲結束後可以加入哪方勝利字樣</p>
+<p>4.計分可以拆分成兩方並標示(藍方紅方等)以便了解比分情況</p>
+<p>5.翻車時目前沒有自救空間</p>
+<p>可以增加按鍵來達成加機器擺正</p>
+<p>6.按鍵指令只能觸發一個</p>
+<p>造成動作不夠連貫</p>
+<p>希望能做到同時按兩個鍵</p>
+<p>將會有更高的操作性</p>
+<p><span style="background-color: #ff0000;">補充</span></p>
+<p>sensingNose其實沒有實際用處</p>
+<p>不拔除主要原因是可以用來凸顯bubbleRob的移動方向</p>
+<p><span style="background-color: #ff0000;">心得</span></p>
+<p>這次的專案從中學習到了CoppeliaSim的remoteApi實際運作方式</p>
+<p>也對CoppeliaSim的lua與python的寫法有更深得了解</p>
+<p>對於CoppeliaSim的句柄用法了解透徹能夠靈活運用</p>
+<p>不過對於sim.py函式庫的使用依舊有加強空間</p>
+<p>許多函式不熟悉只能使用替代方案執行</p>
+<p>編寫程式時可以多利用print</p>
+<p>不管是除錯或者理解暫存的內容都好用</p>
+<p>lua的寫法與習慣的pyhton略有不同</p>
+<p>例如</p>
+<p>--lua註解</p>
+<p>#python註解</p>
+<p>lua程式後面需要加上end表示結束</p>
+<p>但不需要像python重視縮排</p>
+<p>-- lua 的if</p>
+<p>if *條件* then *輸出* elseif *條件2* then *輸出2* else *輸出3* end</p>
+<p>python不需要then 且elif跟lua的elseif寫法不同需要注意</p>
+<p>-- lua 的whilefunction sysCall_actuation()</p>
+<p>*程式*</p>
+<p>end</p>
+<p>跟python的while True:類似無限循環執行到結束</p><h1>Tutorial1</h1>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="/downloads/bubbleRob1.mp4" type="video/mp4"/></video>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="/downloads/bubbleRobfinal.mp4" type="video/mp4"/></video></div>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="/downloads/Finish.mp4" type="video/mp4"/></video></div>
