@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 23.1 Portable) (preloaded format=xelatex 2023.4.15)  15 APR 2023 21:47
+This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 23.1 Portable) (preloaded format=xelatex 2023.4.15)  15 APR 2023 23:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -884,14 +884,18 @@ Overfull \hbox (145.89752pt too wide) detected at line 95
 
  [4
 
-] (cd_report.lof)
+] (cd_report.lof
+Overfull \hbox (0.363pt too wide) detected at line 13
+ []\TU/lmr/m/n/17.28 10
+ []
+
+)
 \tf@lof=\write5
 \openout5 = `cd_report.lof'.
 
  [5
 
-]
-(cd_report.lot)
+] (cd_report.lot)
 \tf@lot=\write6
 \openout6 = `cd_report.lot'.
 
@@ -899,9 +903,110 @@ Overfull \hbox (145.89752pt too wide) detected at line 95
 
 ]
 Chapter 1.
-) (9_reference.tex [1
+) (2_Production process.tex [1
 
 ]
+Chapter 2.
+File: ./../images//lua move.png Graphic file (type bmp)
+<./../images//lua move.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 10--11
+ [] 
+ []
+
+File: ./../images//紀錄初始位置.png Graphic file (type bmp)
+<./../images//紀錄初始位置.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 20--21
+ [] 
+ []
+
+File: ./../images//重製位置.png Graphic file (type bmp)
+<./../images//重製位置.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 28--29
+ [] 
+ []
+
+[2
+
+]
+File: ./../images//326.png Graphic file (type bmp)
+<./../images//326.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 37--38
+ [] 
+ []
+
+File: ./../images//記分板與計時程式.png Graphic file (type bmp)
+<./../images//記分板與計時程式.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 49--50
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--55
+
+ []
+
+File: ./../images//412-1.png Graphic file (type bmp)
+<./../images//412-1.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 61--62
+ [] 
+ []
+
+File: ./../images//412-2.png Graphic file (type bmp)
+<./../images//412-2.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 68--69
+ [] 
+ []
+
+File: ./../images//歡迎與恭喜lua.png Graphic file (type bmp)
+<./../images//歡迎與恭喜lua.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 75--76
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--80
+
+ []
+
+[3]
+File: ./../images//開啟埠號.png Graphic file (type bmp)
+<./../images//開啟埠號.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 85--86
+ [] 
+ []
+
+File: ./../images//python操控.png Graphic file (type bmp)
+<./../images//python操控.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 94--95
+ [] 
+ []
+
+[4] [5]) (9_reference.tex [6]
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 [][]\TU/TimesNewRoman(0)/m/n/14 https://towardsdatascience.com/adam-latest-tren
 ds-in-deep-learning-
@@ -943,12 +1048,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 0972fcbc77e4ea32c5#
  []
 
-[2
+[7
 
-] [3]) (10_appendix.tex
+] [8]) (10_appendix.tex
 File: ./../images//編譯流程.png Graphic file (type bmp)
 <./../images//編譯流程.png>
- [4] [5]) (cd_report.aux)
+ [9] [10]) (cd_report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -956,15 +1061,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `cd_report.out' has not changed.
-(rerunfilecheck)             Checksum: 08DC6318D94093039FCADCBD5DEC71B0;526.
+(rerunfilecheck)             Checksum: 6291E6A4B063D85FCA4669ED1F8B6D96;1077.
  ) 
 Here is how much of TeX's memory you used:
- 19207 strings out of 411476
- 370909 string characters out of 5820613
+ 19403 strings out of 411476
+ 374807 string characters out of 5820613
  1864001 words of memory out of 5000000
- 39128 multiletter control sequences out of 15000+600000
+ 39321 multiletter control sequences out of 15000+600000
  520188 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,17n,84p,619b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on cd_report.pdf (12 pages).
+Output written on cd_report.pdf (17 pages).

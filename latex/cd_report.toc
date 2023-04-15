@@ -3,6 +3,12 @@
 \contentsline {chapter}{誌\nobreakspace {}\nobreakspace {}\nobreakspace {}謝}{iii}{Doc-Start}%
 \contentsline {chapter}{\numberline {1}前言}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}規則說明}{1}{section.1.1}%
-\contentsline {chapter}{參考文獻}{1}{Item.4}%
-\contentsline {chapter}{附錄}{4}{chapter*.4}%
+\contentsline {chapter}{\numberline {2}製作歷程}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}移動方式}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}重製位置}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}記分板與計時}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}歡迎與恭喜}{4}{section.2.4}%
+\contentsline {section}{\numberline {2.5}RemoteApi}{5}{section.2.5}%
+\contentsline {chapter}{參考文獻}{7}{figure.2.10}%
+\contentsline {chapter}{附錄}{9}{chapter*.4}%
 \contentsfinish 
