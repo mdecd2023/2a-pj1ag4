@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 23.1 Portable) (preloaded format=xelatex 2023.4.15)  15 APR 2023 23:33
+This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 23.1 Portable) (preloaded format=xelatex 2023.4.15)  16 APR 2023 17:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -698,22 +698,7 @@ LaTeX Warning: Unused global option(s):
 
 (cd_report.aux
 
-LaTeX Warning: Label `1' multiply defined.
-
-
-LaTeX Warning: Label `2' multiply defined.
-
-
-LaTeX Warning: Label `3' multiply defined.
-
-
-LaTeX Warning: Label `4' multiply defined.
-
-
-LaTeX Warning: Label `5' multiply defined.
-
-
-LaTeX Warning: Label `6' multiply defined.
+LaTeX Warning: Label `歡迎' multiply defined.
 
 )
 \openout1 = `cd_report.aux'.
@@ -878,34 +863,98 @@ Overfull \hbox (145.89752pt too wide) detected at line 95
 
 ] (abstract.tex [1
 
-]) [2] [3] (cd_report.toc)
+]) [2] (cd_report.toc
+Overfull \hbox (1.77997pt too wide) detected at line 14
+ \TU/TimesNewRoman(0)/m/n/17.28 10
+ []
+
+
+Overfull \hbox (1.13872pt too wide) detected at line 15
+ \TU/TimesNewRoman(0)/m/n/17.28 11
+ []
+
+
+Overfull \hbox (1.77997pt too wide) detected at line 16
+ \TU/TimesNewRoman(0)/m/n/17.28 12
+ []
+
+)
 \tf@toc=\write4
 \openout4 = `cd_report.toc'.
 
- [4
+ [3
 
 ] (cd_report.lof
-Overfull \hbox (0.363pt too wide) detected at line 13
- []\TU/lmr/m/n/17.28 10
+Overfull \hbox (0.363pt too wide) detected at line 19
+ []\TU/lmr/m/n/17.28 13
  []
 
 )
 \tf@lof=\write5
 \openout5 = `cd_report.lof'.
 
- [5
+ [4
 
-] (cd_report.lot)
+] (cd_report.lot
+Overfull \hbox (0.363pt too wide) detected at line 5
+ []\TU/lmr/m/n/17.28 12
+ []
+
+)
 \tf@lot=\write6
 \openout6 = `cd_report.lot'.
 
- (1_introduction.tex [6
+ (1_introduction.tex [5
 
 ]
 Chapter 1.
-) (2_Production process.tex [1
+File: ./../images//遊戲檔案.png Graphic file (type bmp)
+<./../images//遊戲檔案.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 17--18
+ [] 
+ []
+
+File: ./../images//ip.png Graphic file (type bmp)
+<./../images//ip.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 25--26
+ [] 
+ []
+
+File: ./../images//gameip.png Graphic file (type bmp)
+<./../images//gameip.png>
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 36--37
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--40
+
+ []
+
+[1
 
 ]
+File: ./../images//412-1.png Graphic file (type bmp)
+<./../images//412-1.png>
+ [2]) (2_Production process.tex [3]
 Chapter 2.
 File: ./../images//lua move.png Graphic file (type bmp)
 <./../images//lua move.png>
@@ -928,7 +977,7 @@ Overfull \hbox (14.22635pt too wide) in paragraph at lines 28--29
  [] 
  []
 
-[2
+[4
 
 ]
 File: ./../images//326.png Graphic file (type bmp)
@@ -991,7 +1040,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 57--80
 
  []
 
-[3]
+[5]
 File: ./../images//開啟埠號.png Graphic file (type bmp)
 <./../images//開啟埠號.png>
 
@@ -1006,54 +1055,45 @@ Overfull \hbox (14.22635pt too wide) in paragraph at lines 94--95
  [] 
  []
 
-[4] [5]) (9_reference.tex [6]
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-[][]\TU/TimesNewRoman(0)/m/n/14 https://towardsdatascience.com/adam-latest-tren
-ds-in-deep-learning-
+[6] [7]) (3_defect.tex [8]
+Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 6--7
-[][]\TU/TimesNewRoman(0)/m/n/14 https://towardsdatascience.com/derivative-of-th
-e-sigmoid-function-
+
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
-[][]\TU/TimesNewRoman(0)/m/n/14 https://medium.com/change-the-world-with-techno
-logy/policy-gradient-
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-[][]\TU/TimesNewRoman(0)/m/n/14 https://livebook.manning.com/book/grokking-deep
--reinforcement-
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-[][]\TU/TimesNewRoman(0)/m/n/14 https://lilianweng.github.io/lil-log/2018/04/08
-/policy-gradient-
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
  []
 
+[9
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-[][]\TU/TimesNewRoman(0)/m/n/14 https://hackernoon.com/the-reason-behind-moving
--in-the-direction-
- []
+]) (4_experience.tex
+Chapter 4.
+[10
 
+]) (9_reference.tex [11
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-[][]\TU/TimesNewRoman(0)/m/n/14 https://gist.github.com/karpathy/a4166c7fe25370
-0972fcbc77e4ea32c5#
- []
-
-[7
-
-] [8]) (10_appendix.tex
+]) (10_appendix.tex
 File: ./../images//編譯流程.png Graphic file (type bmp)
 <./../images//編譯流程.png>
- [9] [10]) (cd_report.aux)
+ [12] [13]) (cd_report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1061,15 +1101,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `cd_report.out' has not changed.
-(rerunfilecheck)             Checksum: 6291E6A4B063D85FCA4669ED1F8B6D96;1077.
+(rerunfilecheck)             Checksum: 57499C0791086DFA81094635623EB46E;1325.
  ) 
 Here is how much of TeX's memory you used:
- 19403 strings out of 411476
- 374807 string characters out of 5820613
+ 19458 strings out of 411476
+ 375903 string characters out of 5820613
  1864001 words of memory out of 5000000
- 39321 multiletter control sequences out of 15000+600000
+ 39370 multiletter control sequences out of 15000+600000
  520188 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,17n,84p,619b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,17n,84p,619b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on cd_report.pdf (17 pages).
+Output written on cd_report.pdf (19 pages).
