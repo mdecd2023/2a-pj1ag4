@@ -1,9 +1,9 @@
 \documentclass[14pt,a4paper]{report}  %紙張設定
 \usepackage{xeCJK}%中文字體模組
-%\setCJKmainfont{標楷體} %設定中文字體
-\setCJKmainfont{MoeStandardKai.ttf}
-%\newfontfamily\sectionef{Times New Roman}%設定英文字體
-\newfontfamily\sectionef{Nimbus Roman}
+\setCJKmainfont{標楷體} %設定中文字體
+%\setCJKmainfont{MoeStandardKai.ttf}
+\newfontfamily\sectionef{Times New Roman}%設定英文字體
+%\newfontfamily\sectionef{Nimbus Roman}
 \usepackage{enumerate}
 \usepackage{amsmath,amssymb}%數學公式、符號
 \usepackage{amsfonts} %數學簍空的英文字
@@ -108,12 +108,6 @@ Web-based bubbleRob Football Scene Design}
 \input{abstract.tex}
 \newpage
 %=------------------------誌謝----------------------=%
-\addcontentsline{toc}{chapter}{誌~~~謝}
-\centerline\LARGE\textbf{誌~~謝}\\
-\begin{flushleft}
-\fontsize{14pt}{2.5pt}\hspace{12pt}\quad 在此鄭重感謝製作以及協助本分組報告完成的所有人員，首先向嚴家銘老師致謝，不厭其煩的回答我們的提問，總是像燈塔一樣為我們指引出最正確的方向。特此感謝。
-\end{flushleft}
-\newpage
 %=------------------------目錄----------------------=%
 \renewcommand{\contentsname}{\centerline{\fontsize{18pt}{\baselineskip}\selectfont\textbf{目\quad 錄}}}
 \tableofcontents　　%目錄產生
@@ -132,8 +126,11 @@ Web-based bubbleRob Football Scene Design}
 
 \end{center}
 %=-------------------------內容----------------------=%
-
-%=---------------------參考文獻----------------------=%
+\input{1_introduction.tex}
+\input{2_Production process.tex}
+\input{3_defect.tex}
+\input{4_experience.tex}
+%=---------------------相關資料----------------------=%
 \input{9_reference.tex}
 %=---------------附錄-----------------=%
 \addcontentsline{toc}{chapter}{附錄} %新增目錄名稱
